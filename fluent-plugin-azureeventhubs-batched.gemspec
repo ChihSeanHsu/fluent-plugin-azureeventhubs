@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "fluent-plugin-azureeventhubs-batched"
-  spec.version       = "0.0.1"
+  spec.version       = "0.0.8"
   spec.authors       = ["Hidemasa Togashi", "Toddy Mladenov", "Justin Seely", "Chih Hsiang Hsu"]
   spec.email         = ["togachiro@gmail.com", "toddysm@gmail.com", "s8901489@gmail.com"]
   spec.summary       = "Fluentd output plugin for Azure Event Hubs"
@@ -20,4 +20,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_dependency "fluentd", [">= 0.14.15", "< 2"]
+  spec.add_dependency "httpclient", ">= 2.8.3"
 end
