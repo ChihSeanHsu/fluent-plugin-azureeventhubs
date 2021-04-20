@@ -1,13 +1,14 @@
 # Fluent::Plugin::Azureeventhubs
 
 Azure Event Hubs buffered output plugin for Fluentd.
+This fork repo is for batch function.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'fluent-plugin-azureeventhubs'
+gem 'fluent-plugin-azureeventhubs-batched'
 ```
 
 And then execute:
@@ -16,7 +17,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install fluent-plugin-azureeventhubs
+    $ gem install fluent-plugin-azureeventhubs-batched
 
 ## Configuration
 
@@ -41,6 +42,32 @@ Or install it yourself as:
   print_records     (true|false) # true: Print each record as it is processed. [Optional: default => true]
 </match>
 ```
+
+## Batch mode
+Change batch format after V0.0.9 to align with Azure Eventhub documents.
+[Eventhub batch events](https://docs.microsoft.com/en-us/rest/api/eventhub/send-batch-events)
+
+# Version >= v0.0.9
+
+```
+[
+  { "Body": "msg" },
+  { "Body": "msg" },
+  ...
+]
+```
+
+# Version < v0.0.9
+```
+{
+  "records": [
+    { "Body": "msg" },
+    { "Body": "msg" },
+    ...
+  ]
+}
+```
+
 
 ## Contributing
 
