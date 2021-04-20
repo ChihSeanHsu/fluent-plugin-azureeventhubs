@@ -76,7 +76,7 @@ module Fluent::Plugin
       }
 
       records.each_slice(@max_batch_size).each { |group| 
-        payload = { "records" => group }
+        payload = group
         @sender.send_w_properties(payload, @message_properties)
       }
     end
